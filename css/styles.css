@@ -146,3 +146,16 @@ hr {
 .appendix li {
   margin-bottom: 10px;
 }
+
+#tooltip {
+  position: absolute;
+  display: none;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  pointer-events: none; /* Prevents tooltip from blocking mouse events */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}

@@ -78,34 +78,83 @@
         <h3 style="margin-top: 0">Incident Density by Hour and Day</h3>
         <div class="vis-container" id="heatmap-vis"></div>
         <div class="vis-caption">
-          Hover over any block to see the exact incident count for that hour.
+          Hover over any block to see the exact incident count for that hour
         </div>
 
-        <h3>Yearly Seasonal Trend</h3>
+        <h3>Historical Trend (2001 - Present)</h3>
         <div class="vis-container" id="linegraph-vis"></div>
         <div class="vis-caption">
-          Aggregated monthly totals for the selected crime category.
+          Aggregated monthly totals for the selected crime category
         </div>
       </div>
 
-      <h2>The Power of Interaction</h2>
+      <h2>Interpreting the Data</h2>
+
+      <p>
+        When looking at most crime, specifically in cases like
+        <strong>Theft, Narcotics and Burglary</strong>, the visualizations
+        reveal two distinct temporal realities: the daily micro-cycle and the
+        yearly macro-cycle.
+      </p>
+
+      <h3>The Daily Micro-Cycle (Heatmap)</h3>
+      <p>
+        The heatmap paints a clear picture of opportunity. Thefts are lowest
+        between 2:00 AM and 6:00 AM, a period when the city is largely asleep
+        and property is secured. However, as the city wakes up, the incident
+        density steadily climbs, reaching its absolute peak between 12:00 PM and
+        7:00 PM. This perfectly mirrors the rhythm of foot traffic, retail
+        hours, and commuting, which are environments ripe for pickpocketing,
+        retail theft, and unattended belongings.
+      </p>
+
+      <h3>The Yearly Macro-Cycle (Line Graph)</h3>
+      <p>
+        Zooming out to the 25-year historical trend, three major narratives
+        emerge:
+      </p>
+      <ul>
+        <li>
+          <strong>The Summer Spike:</strong> Crimes like Theft, Battery,
+          Criminal Damage, and Burglary peak every July and August, then plunge
+          to their lowest points in January and February. The Chicago winters
+          act as a natural deterrent, keeping people indoors, while summer
+          brings open windows, crowded parks, and a surge in reported incidents
+          <em
+            >(see the highlighted regions showing summer months in light yellow
+            making this clearer).</em
+          >
+        </li>
+        <li>
+          <strong>The 20-Year Decline:</strong> Despite the yearly volatility,
+          the macro trend is undeniably downward. The early 2000s regularly saw
+          over 10,000 thefts per month. By recent years, that baseline has
+          dropped by nearly half, hovering between 4,000 and 6,000 (besides
+          Motor Vehicle Theft which shows a completely different story).
+        </li>
+        <li>
+          <strong>The 2020 Anomaly:</strong> We see a sharp cratering of the
+          data in early 2020 for crimes like Theft and Narcotics. As COVID-19
+          lockdowns emptied the streets and closed retail stores, these crimes
+          dropped significantly.
+        </li>
+      </ul>
+
+      <h2>Design Decisions</h2>
 
       <p>
         By implementing these interactive techniques, the data transforms from a
         dense spreadsheet into an exploratory tool. The dropdown acts as a
-        global filter (a Category I interaction), dynamically re-binding data to
-        both visualizations simultaneously.
+        global filter (Category I), dynamically re-binding data to both
+        visualizations simultaneously.
       </p>
 
       <p>
         Furthermore, because aggregated data can sometimes hide the underlying
-        scale, we implemented details-on-demand tooltips (a Category II
-        interaction). Hovering over any element in the charts reveals the
-        precise historical incident count, providing context without cluttering
-        the initial view.
+        scale, we implemented details-on-demand tooltips (Category II). Hovering
+        over any element in the charts reveals the precise historical incident
+        count, providing context without cluttering the initial view.
       </p>
-
-      <hr />
 
       <div class="appendix ui-text">
         <h2>Methodology & Project Details</h2>
@@ -133,10 +182,16 @@
           the final storytelling and design iteration. This project took roughly
           10 hours to setup, with most of the time taken to process the data.
         </p>
+
+        <h3>AI Usage Statement</h3>
+        <p>
+          We utilized AI tools primarily to help write the initial boilerplate
+          for our data aggregation scripts and debugging D3.js issues.
+        </p>
       </div>
     </article>
 
-    <!-- Load D3.js -->
+    <div id="tooltip"></div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/script.js"></script>
   </body>
