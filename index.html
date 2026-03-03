@@ -3,25 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 3</title>
+    <title>A1</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <!-- Centers content and sets max width -->
-      <h1>Lab 3: Understanding the General Update Pattern</h1>
+    <article>
+      <h1>The Rhythm of the City: Temporal Patterns in Chicago Crime</h1>
+      <p class="subtitle">
+        An interactive exploration of how the clock and the calendar dictate
+        urban incidents.
+      </p>
 
-      <div class="controls">
-        <button id="addPoint">Add Point</button>
-        <button id="removePoint">Remove Point</button>
-        <button id="updatePoints">Update Points</button>
+      <div class="meta-data">
+        <div>
+          <strong>Tulika Kumar & Somil Varshney</strong><br />
+          <span>CMSC471, March 2026</span>
+        </div>
       </div>
 
-      <p>The buttons above add a new random point, remove
-      the last point, or shift all points randomly.</p>
+      <p>
+        Cities operate on a rhythm. The morning commute, the lunch rush, the
+        quiet of the early hours—all these phases dictate human behavior. But
+        does crime follow a similar, predictable schedule? To answer this, we
+        turned to the <strong>Chicago Crimes dataset</strong>, an extensive
+        public record extracted from the Chicago Police Department’s CLEAR
+        system.
+      </p>
 
-      <div id="vis"></div> <!--  Will hold our visualization (SVG) -->
-    </div>
+      <p>
+        Because analyzing decades of data at once can obscure recent realities,
+        we focused our lens on the past 12 months. Rather than looking at
+        <em>where</em> crimes happen geographically, we wanted to understand
+        <em>when</em> they happen. By isolating variables like the
+        <code>Primary Type</code> of crime, the <code>Month</code>, the
+        <code>Day of Week</code>, and the <code>Hour</code>, distinct signatures
+        begin to emerge.
+      </p>
+
+      <h2>Designing for Discovery</h2>
+
+      <p>
+        To uncover these patterns, we built two interactive visual encodings: a
+        24x7 Heatmap and a 12-month Line Graph. We avoided geographic maps
+        entirely to focus on spotting overall temporal trends.
+      </p>
+
+      <p>
+        The Heatmap uses position (Day vs. Hour) and color intensity (luminance)
+        to encode incident volume, allowing "hotspots" to immediately pop out to
+        the viewer. The accompanying Line Graph uses a shared position scale to
+        track the seasonal ebb and flow of these same incidents over the year.
+      </p>
+
+      <p>
+        But static charts only tell part of the story. Use the dynamic query
+        selector below to explore the data yourself. Notice how the temporal
+        footprint of a late-night offense like Battery differs entirely from the
+        daytime spikes of Theft.
+      </p>
+
+      <div class="interactive-section ui-text">
+        <div class="controls">
+          <label for="crime-selector">Explore Crime Type:</label>
+          <select id="crime-selector">
+            <option value="THEFT">Theft</option>
+            <option value="BATTERY">Battery</option>
+            <option value="CRIMINAL_DAMAGE">Criminal Damage</option>
+            <option value="NARCOTICS">Narcotics</option>
+            <option value="BURGLARY">Burglary</option>
+            <option value="MOTOR_VEHICLE_THEFT">Motor Vehicle Theft</option>
+          </select>
+        </div>
+
+        <h3 style="margin-top: 0">Incident Density by Hour and Day</h3>
+        <div class="vis-container" id="heatmap-vis"></div>
+        <div class="vis-caption">
+          Hover over any block to see the exact incident count for that hour.
+        </div>
+
+        <h3>Yearly Seasonal Trend</h3>
+        <div class="vis-container" id="linegraph-vis"></div>
+        <div class="vis-caption">
+          Aggregated monthly totals for the selected crime category.
+        </div>
+      </div>
+
+      <h2>The Power of Interaction</h2>
+
+      <p>
+        By implementing these interactive techniques, the data transforms from a
+        dense spreadsheet into an exploratory tool. The dropdown acts as a
+        global filter (a Category I interaction), dynamically re-binding data to
+        both visualizations simultaneously.
+      </p>
+
+      <p>
+        Furthermore, because aggregated data can sometimes hide the underlying
+        scale, we implemented details-on-demand tooltips (a Category II
+        interaction). Hovering over any element in the charts reveals the
+        precise historical incident count, providing context without cluttering
+        the initial view.
+      </p>
+
+      <hr />
+
+      <div class="appendix ui-text">
+        <h2>Methodology & Project Details</h2>
+
+        <h3>Data Sources</h3>
+        <ul>
+          <li>
+            <strong>Dataset:</strong>
+            <a
+              href="https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2"
+              target="_blank"
+              style="color: #242424"
+              >Chicago Crimes, 2001–present</a
+            >
+            (City of Chicago Data Portal). Data was pre-processed using Python
+            (Pandas) to aggregate by hour, day, and month.
+          </li>
+        </ul>
+
+        <h3>Development Process & Work Split</h3>
+        <p>
+          Our team divided the project based on data processing, overall
+          documentation and visual style, and creating the visuals themselves
+          using D3.js to bind the data, scale the axes, etc. We collaborated on
+          the final storytelling and design iteration. This project took roughly
+          10 hours to setup, with most of the time taken to process the data.
+        </p>
+      </div>
+    </article>
 
     <!-- Load D3.js -->
     <script src="https://d3js.org/d3.v7.min.js"></script>

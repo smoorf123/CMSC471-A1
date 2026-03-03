@@ -1,53 +1,148 @@
-/* Reset default styles */
-* {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0px auto;
-  line-height: 1.8;
+body {
+  font-family: "Charter", "Georgia", serif;
+  color: #242424;
+  line-height: 1.58;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Container styling for layout */
-.container {
-  max-width: 800px;
-  margin: 2rem auto;
-  font-family: Arial, sans-serif;
+h1,
+h2,
+h3,
+h4,
+.ui-text {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#vis svg {
-  margin: 2rem 0;
-  border: 1px solid #ccc; /*otherwise you can't see this part*/
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
 }
 
-.x-axis path,
-.y-axis path,
-.x-axis line,
-.y-axis line {
-    stroke: #333;
-    shape-rendering: crispEdges;
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 56px;
+  margin-bottom: 16px;
 }
 
-.x-axis text,
-.y-axis text {
-    font-size: 12px;
-    font-family: Arial, sans-serif;
+.subtitle {
+  color: #6b6b6b;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.axis-label {
-    font-size: 14px;
-    font-weight: bold;
+.meta-data {
+  display: flex;
+  align-items: center;
+  color: #6b6b6b;
+  font-size: 14px;
+  margin-bottom: 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-button {
-    padding: 8px 16px;
-    margin-right: 10px;
-    background-color: steelblue;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+p {
+  font-size: 21px;
+  margin-bottom: 32px;
+  letter-spacing: -0.003em;
 }
 
-button:hover {
-    background-color: #2a5f8f;
+.interactive-section {
+  margin: 50px -20px;
+  padding: 40px 20px;
+  background-color: #fbfbfb;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.controls {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.controls label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 12px;
+  color: #242424;
+}
+
+select {
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #d1d1d1;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: #242424;
+}
+
+.vis-container {
+  width: 100%;
+  height: 450px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vis-caption {
+  font-size: 14px;
+  color: #6b6b6b;
+  text-align: center;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 60px 30%;
+}
+
+.appendix {
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.appendix p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.appendix h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #242424;
+  margin-top: 40px;
+}
+
+.appendix ul {
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.appendix li {
+  margin-bottom: 10px;
 }
