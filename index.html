@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Centers content and sets max width -->
+      <h1>Lab 3: Understanding the General Update Pattern</h1>
+
+      <div class="controls">
+        <button id="addPoint">Add Point</button>
+        <button id="removePoint">Remove Point</button>
+        <button id="updatePoints">Update Points</button>
+      </div>
+
+      <p>The buttons above add a new random point, remove
+      the last point, or shift all points randomly.</p>
+
+      <div id="vis"></div> <!--  Will hold our visualization (SVG) -->
+    </div>
+
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
